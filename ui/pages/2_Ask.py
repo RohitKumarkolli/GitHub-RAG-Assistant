@@ -86,7 +86,7 @@ if prompt := st.chat_input(
                 repo_name=selected_repo,
                 question=prompt,
                 top_k=top_k,
-                include_sources=show_sources,
+                include_sources=show_sources
             )
 
         if result["success"]:
