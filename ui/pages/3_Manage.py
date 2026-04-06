@@ -1,6 +1,7 @@
 # ui/pages/3_Manage.py
 
 import streamlit as st
+import requests
 from api_client import client
 from components.styles import apply_styles
 from components.sidebar import render_sidebar
@@ -13,7 +14,18 @@ st.set_page_config(
 apply_styles()
 render_sidebar()
 
-st.title("⚙️ Manage Repositories")
+
+API_BASE_URL = st.secrets["API_BASE_URL"]
+
+def get_repos():
+    response = requests.get(f"{API_BASE_URL}/repos")
+    return response.json()
+
+st.title("Manage Repositories")
+
+if st.button("Load Repos"):
+    repos = get_repos()
+    st.write(repos)
 st.divider()
 
 repos = client.list_repos()
