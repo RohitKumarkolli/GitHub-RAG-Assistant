@@ -1,25 +1,27 @@
-fastapi==0.111.0
-uvicorn[standard]==0.29.0
+# fastapi==0.111.0
+# uvicorn[standard]==0.29.0
 
-langchain==0.2.5
-langchain-community==0.2.5
-langchain-huggingface==0.0.3
+# langchain==0.2.5
+# langchain-community==0.2.5
+# langchain-huggingface==0.0.3
 
-transformers==4.41.2
-sentence-transformers==3.0.0
-torch
+# transformers==4.41.2
+# sentence-transformers==3.0.0
+# torch
 
-faiss-cpu>=1.12.0
-gitpython==3.1.43
+# faiss-cpu>=1.12.0
+# gitpython==3.1.43
 
-python-dotenv==1.0.1
-pydantic-settings==2.3.1
+# python-dotenv==1.0.1
+# pydantic-settings==2.3.1
 
-anthropic==0.40.0
-groq>=0.9.0          # ← NEW
+# anthropic==0.40.0
+# groq>=0.9.0          # ← NEW
 
-httpx>=0.27.0
-packaging
+# httpx>=0.27.0
+# packaging
 
-streamlit==1.35.0
-requests==2.32.3
+# streamlit==1.35.0
+# requests==2.32.3
+streamlit
+requests
