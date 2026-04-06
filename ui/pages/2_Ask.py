@@ -16,33 +16,8 @@ st.set_page_config(
 apply_styles()
 render_sidebar()
 
-API_BASE_URL = st.secrets["API_BASE_URL"]
-
-def ask_question(question):
-    response = requests.post(
-        f"{API_BASE_URL}/ask",
-        json={"question": question}
-    )
-    return response.json()
-
-
-API_BASE_URL = st.secrets["API_BASE_URL"]
-
-def ask_question(question):
-    response = requests.post(
-        f"{API_BASE_URL}/ask",
-        json={"question": question}
-    )
-    return response.json()
-
 st.title("Ask Questions")
 
-query = st.text_input("Enter your question")
-
-if st.button("Ask"):
-    with st.spinner("Thinking..."):
-        result = ask_question(query)
-        st.write(result)
 st.markdown("Ask any question in plain English — get answers grounded in source code.")
 st.divider()
 
