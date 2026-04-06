@@ -4,6 +4,7 @@ import streamlit as st
 from api_client import client
 from components.styles import apply_styles
 from components.sidebar import render_sidebar
+import requests
 
 st.set_page_config(
     page_title="Ask — RAG Assistant",
@@ -12,6 +13,15 @@ st.set_page_config(
 )
 apply_styles()
 render_sidebar()
+
+API_BASE_URL = st.secrets["API_BASE_URL"]
+
+def ask_question(question):
+    response = requests.post(
+        f"{API_BASE_URL}/ask",
+        json={"question": question}
+    )
+    return response.json()
 
 st.title("💬 Ask About the Code")
 st.markdown("Ask any question in plain English — get answers grounded in source code.")
