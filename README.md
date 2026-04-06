@@ -1,5 +1,10 @@
 ---
-# 🤖 GitHub RAG Assistant
+title: GitHub RAG Assistant API
+emoji: 🤖
+colorFrom: blue
+colorTo: purple
+sdk: docker
+pinned: false
 ---
 > **Ask questions about any GitHub repository in plain English — powered by semantic search + LLM generation.**
 
