@@ -5,8 +5,7 @@ from typing import Optional
 import streamlit as st
 
 # Backend URL — overridden by environment variable in Docker
-API_BASE_URL = "http://localhost:8000/api/v1"
-
+API_BASE_URL = "https://kollirohitkuamr-github-rag-api.hf.space"
 
 def get_api_url() -> str:
     """Get API URL from Streamlit secrets or default."""
