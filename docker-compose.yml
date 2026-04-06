@@ -1,0 +1,44 @@
+# docker-compose.yml  (Development)
+
+version: "3.9"
+
+services:
+
+  # ── FastAPI Backend ──────────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    container_name: rag-api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persist cloned repos and FAISS index across restarts
+      - ./data:/app/data
+      - ./vector_store:/app/vector_store
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - rag-network
+
+  # ── Streamlit Frontend ───────────────────────────────────────────────────────
+  ui:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.ui
+    container_name: rag-ui
+    ports:
+      - "8501:8501"
+    environment:
+      # Tell the UI where the backend is (use Docker service name)
+      - API_BASE_URL=http://api:8000/api/v1
+    depends_on:
+      - api
+    restart: unless-stopped
+    networks:
+      - rag-network
+
+networks:
+  rag-network:
+    driver: bridge

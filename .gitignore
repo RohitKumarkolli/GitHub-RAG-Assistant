@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Project-specific
+data/repos/
+vector_store/
+*.faiss
+*.pkl
+
+# IDE
+.vscode/
+.idea/
