@@ -1,6 +1,8 @@
 # ui/pages/1_Ingest.py
 
 import streamlit as st
+import requests
+import streamlit as st
 from api_client import client
 from components.styles import apply_styles
 from components.sidebar import render_sidebar
@@ -13,7 +15,24 @@ st.set_page_config(
 apply_styles()
 render_sidebar()
 
-st.title("📥 Ingest Repository")
+
+API_BASE_URL = st.secrets["API_BASE_URL"]
+
+def ingest_repo(repo_url):
+    response = requests.post(
+        f"{API_BASE_URL}/ingest-repo",
+        json={"repo_url": repo_url}
+    )
+    return response.json()
+
+st.title("Ingest Repository")
+
+repo_url = st.text_input("Enter GitHub Repo URL")
+
+if st.button("Ingest"):
+    with st.spinner("Processing repo..."):
+        result = ingest_repo(repo_url)
+        st.write(result)
 st.markdown("Clone a GitHub repo and build its vector index.")
 st.divider()
 
