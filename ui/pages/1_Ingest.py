@@ -60,11 +60,7 @@ if submitted:
             st.write("🔢 Generating embeddings...")
             st.write("💾 Building FAISS index...")
 
-            result = client.ingest_repo(
-                repo_url=repo_url,
-                local_path=local_path,
-                branch=branch,
-            )
+            result = client.ingest_repo(repo_url=repo_url)
 
         if result["success"]:
             status.update(label="✅ Ingestion complete!", state="complete")
