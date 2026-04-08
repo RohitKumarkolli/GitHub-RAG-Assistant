@@ -67,7 +67,7 @@ The **GitHub RAG Assistant** is a production-grade **Retrieval-Augmented Generat
 | ![Ask](https://via.placeholder.com/400x200/1e2130/4ade80?text=💬+Ask+Questions) | Chat interface with source references |
 | ![Manage](https://via.placeholder.com/400x200/1e2130/fbbf24?text=⚙️+Manage+Repos) | Stats, cache control, repo management |
 
-> **Live Demo**: [your-app.streamlit.app](https://your-app.streamlit.app) *(update after deployment)*
+> **Live Demo**: [your-app.streamlit.app](https://app-rag-assistant-7.streamlit.app) 
 
 ---
 
